@@ -52,34 +52,34 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # # this commit works
 # # b2093843f0be0fbbd9ebab6242019e44699978d7
-http_archive(
-    name = "build_bazel_rules_nodejs",
-    # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
-    urls = ["https://github.com/bazelbuild/rules_nodejs/archive/b2093843f0be0fbbd9ebab6242019e44699978d7.zip"],
-    strip_prefix = "rules_nodejs-b2093843f0be0fbbd9ebab6242019e44699978d7",
-)
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/archive/b2093843f0be0fbbd9ebab6242019e44699978d7.zip"],
+#     strip_prefix = "rules_nodejs-b2093843f0be0fbbd9ebab6242019e44699978d7",
+# )
 
-local_repository(
-    name = "build_bazel_rules_typescript",
-    path = "./external/rules_nodejs-b2093843f0be0fbbd9ebab6242019e44699978d7/third_party/github.com/bazelbuild/rules_typescript",
-)
+# local_repository(
+#     name = "build_bazel_rules_typescript",
+#     path = "./external/rules_nodejs-b2093843f0be0fbbd9ebab6242019e44699978d7/third_party/github.com/bazelbuild/rules_typescript",
+# )
 
 
 
 
 # # this commit does not work
 # # f6db6c918de7db1ebd41dc5aa08714d47f2d0545
-# http_archive(
-#     name = "build_bazel_rules_nodejs",
-#     # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
-#     urls = ["https://github.com/bazelbuild/rules_nodejs/archive/f6db6c918de7db1ebd41dc5aa08714d47f2d0545.zip"],
-#     strip_prefix = "rules_nodejs-f6db6c918de7db1ebd41dc5aa08714d47f2d0545",
-# )
+http_archive(
+    name = "build_bazel_rules_nodejs",
+    # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/archive/f6db6c918de7db1ebd41dc5aa08714d47f2d0545.zip"],
+    strip_prefix = "rules_nodejs-f6db6c918de7db1ebd41dc5aa08714d47f2d0545",
+)
 
-# local_repository(
-#     name = "build_bazel_rules_typescript",
-#     path = "./external/rules_nodejs-f6db6c918de7db1ebd41dc5aa08714d47f2d0545/third_party/github.com/bazelbuild/rules_typescript",
-# )
+local_repository(
+    name = "build_bazel_rules_typescript",
+    path = "./external/rules_nodejs-f6db6c918de7db1ebd41dc5aa08714d47f2d0545/third_party/github.com/bazelbuild/rules_typescript",
+)
 
 
 # this commit does not work
