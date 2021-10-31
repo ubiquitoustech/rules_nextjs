@@ -1,0 +1,11 @@
+filegroup(
+    name = "package_content",
+    srcs = glob([
+        "*.bzl",
+        "*.bazel",
+    ]),
+    visibility = ["//nextjs:__pkg__"],
+)
+
+
+exports_files(["launcher_template.sh"])

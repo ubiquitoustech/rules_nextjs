@@ -1,0 +1,10 @@
+{
+  "description": "runtime dependencies for program example",
+  "dependencies": {
+    "lodash": "4.17.20"
+  },
+  "scripts": {
+    "pretest": "bazel run @nodejs//:yarn_node_repositories",
+    "test": "bazel test ..."
+  }
+}

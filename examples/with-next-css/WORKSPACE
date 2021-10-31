@@ -1,0 +1,223 @@
+# The WORKSPACE file tells Bazel that this directory is a "workspace", which is like a project root.
+# The content of this file specifies all the external dependencies Bazel needs to perform a build.
+
+####################################
+# ESModule imports (and TypeScript imports) can be absolute starting with the workspace name.
+# The name of the workspace should match the npm package where we publish, so that these
+# imports also make sense when referencing the published package.
+workspace(
+    name = "examples_nextjs",
+    managed_directories = {"@npm": ["node_modules"]},
+)
+
+local_repository(
+    name = "ubiquitous_tech_rules_nextjs",
+    path = "../../../rules_nextjs",
+)
+
+# load("@ubiquitous_tech_rules_nextjs//nextjs:repositories.bzl", "rules_nextjs_dependencies")
+
+# rules_nextjs_dependencies()
+
+# # VITE_COMMIT = "2790cd1964bf8a8c70c77ddc7ea32220ff000744"
+
+# # VITE_SHA256 = "55f97743ec28e1b3ef24547d7f171a381cca46c8c296267bac32f77faec25075"
+
+# # http_archive(
+# #     name = "ubiquitous_tech_rules_vite",
+# #     sha256 = VITE_SHA256,
+# #     strip_prefix = "rules_vite-%s" % VITE_COMMIT,
+# #     urls = ["https://github.com/ubiquitoustech/rules_vite/archive/%s.zip" % VITE_COMMIT],
+# # )
+
+# load("@ubiquitous_tech_rules_vite//vite:repositories.bzl", "rules_vite_dependencies")
+
+# rules_vite_dependencies()
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     sha256 = "3aa6296f453ddc784e1377e0811a59e1e6807da364f44b27856e34f5042043fe",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/4.4.2/rules_nodejs-4.4.2.tar.gz"],
+# )
+
+
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/4.4.1/rules_nodejs-4.4.1.tar.gz"],
+# )
+
+
+
+# # this commit works
+# # b2093843f0be0fbbd9ebab6242019e44699978d7
+http_archive(
+    name = "build_bazel_rules_nodejs",
+    # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/archive/b2093843f0be0fbbd9ebab6242019e44699978d7.zip"],
+    strip_prefix = "rules_nodejs-b2093843f0be0fbbd9ebab6242019e44699978d7",
+)
+
+local_repository(
+    name = "build_bazel_rules_typescript",
+    path = "./external/rules_nodejs-b2093843f0be0fbbd9ebab6242019e44699978d7/third_party/github.com/bazelbuild/rules_typescript",
+)
+
+
+
+
+# # this commit does not work
+# # f6db6c918de7db1ebd41dc5aa08714d47f2d0545
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/archive/f6db6c918de7db1ebd41dc5aa08714d47f2d0545.zip"],
+#     strip_prefix = "rules_nodejs-f6db6c918de7db1ebd41dc5aa08714d47f2d0545",
+# )
+
+# local_repository(
+#     name = "build_bazel_rules_typescript",
+#     path = "./external/rules_nodejs-f6db6c918de7db1ebd41dc5aa08714d47f2d0545/third_party/github.com/bazelbuild/rules_typescript",
+# )
+
+
+# this commit does not work
+# # b56bea1e5152672a0f8c267925d54be1c9b002f5
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/archive/b56bea1e5152672a0f8c267925d54be1c9b002f5.zip"],
+#     strip_prefix = "rules_nodejs-b56bea1e5152672a0f8c267925d54be1c9b002f5",
+# )
+
+# local_repository(
+#     name = "build_bazel_rules_typescript",
+#     path = "./external/rules_nodejs-b56bea1e5152672a0f8c267925d54be1c9b002f5/third_party/github.com/bazelbuild/rules_typescript",
+# )
+
+
+# # this commit does not work
+# # 0e05d304e8bad18022bcf17e4b1857001d0845da
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/archive/0e05d304e8bad18022bcf17e4b1857001d0845da.zip"],
+#     strip_prefix = "rules_nodejs-0e05d304e8bad18022bcf17e4b1857001d0845da",
+# )
+
+# local_repository(
+#     name = "build_bazel_rules_typescript",
+#     path = "./external/rules_nodejs-0e05d304e8bad18022bcf17e4b1857001d0845da/third_party/github.com/bazelbuild/rules_typescript",
+# )
+
+
+
+
+
+# # this commit does not work
+# # # 6ee1e529390cadba1add23722a0011a990c9d461
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/archive/6ee1e529390cadba1add23722a0011a990c9d461.zip"],
+#     strip_prefix = "rules_nodejs-6ee1e529390cadba1add23722a0011a990c9d461",
+# )
+
+# local_repository(
+#     name = "build_bazel_rules_typescript",
+#     path = "./external/rules_nodejs-6ee1e529390cadba1add23722a0011a990c9d461/third_party/github.com/bazelbuild/rules_typescript",
+# )
+
+
+
+
+
+
+# # this commit works
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     # sha256 = "4501158976b9da216295ac65d872b1be51e3eeb805273e68c516d2eb36ae1fbb",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/archive/7557d3c09edf1aa6c4abafc4616a3b008a19a547.zip"],
+#     strip_prefix = "rules_nodejs-7557d3c09edf1aa6c4abafc4616a3b008a19a547",
+# )
+
+# local_repository(
+#     name = "build_bazel_rules_typescript",
+#     path = "./external/rules_nodejs-7557d3c09edf1aa6c4abafc4616a3b008a19a547/third_party/github.com/bazelbuild/rules_typescript",
+# )
+
+
+
+
+
+    # maybe(
+    #     http_archive,
+    #     name = "build_bazel_integration_testing",
+    #     urls = [
+    #         "https://github.com/bazelbuild/bazel-integration-testing/archive/165440b2dbda885f8d1ccb8d0f417e6cf8c54f17.zip",
+    #     ],
+    #     strip_prefix = "bazel-integration-testing-165440b2dbda885f8d1ccb8d0f417e6cf8c54f17",
+    #     sha256 = "2401b1369ef44cc42f91dc94443ef491208dbd06da1e1e10b702d8c189f098e3",
+    # )
+
+
+# b56bea1e5152672a0f8c267925d54be1c9b002f5
+
+
+# http_archive(
+#     name = "build_bazel_rules_nodejs",
+#     sha256 = "c9c5d60d6234d65b06f86abd5edc60cadd1699f739ee49d33a099d2d67eb1ae8",
+#     urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/4.4.0/rules_nodejs-4.4.0.tar.gz"],
+# )
+
+
+
+# http_archive(
+#     name = "bazel_skylib",
+#     urls = [
+#         "https://github.com/bazelbuild/bazel-skylib/releases/download/1.1.1/bazel-skylib-1.1.1.tar.gz",
+#         "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.1.1/bazel-skylib-1.1.1.tar.gz",
+#     ],
+#     sha256 = "c6966ec828da198c5d9adbaa94c05e3a1c7f21bd012a0b29ba8ddbccb2c93b0d",
+# )
+# load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
+# bazel_skylib_workspace()
+
+
+
+# local_repository(
+#     name = "build_bazel_rules_typescript",
+#     path = "./external/rules_nodejs-7557d3c09edf1aa6c4abafc4616a3b008a19a547/third_party/github.com/bazelbuild/rules_typescript",
+# )
+
+
+
+
+
+load("@ubiquitous_tech_rules_nextjs//nextjs:repositories.bzl", "rules_nextjs_dependencies")
+
+rules_nextjs_dependencies()
+
+# load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
+
+# bazel_skylib_workspace()
+
+# Check the bazel version and download npm dependencies
+load("@build_bazel_rules_nodejs//:index.bzl", "node_repositories", "yarn_install")
+
+node_repositories(
+    node_version = "16.10.0",
+)
+
+# Setup the Node.js toolchain & install our npm dependencies into @npm
+yarn_install(
+    name = "npm",
+    package_json = "//:package.json",
+    yarn_lock = "//:yarn.lock",
+)
+
+
+# load("@ubiquitous_tech_rules_nextjs//nextjs:repositories.bzl", "rules_nextjs_dependencies")
+
+# rules_nextjs_dependencies()
