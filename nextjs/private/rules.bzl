@@ -3,7 +3,6 @@ nextjs rule
 """
 
 load(":actions.bzl", "nextjs_build_action")
-# load(":providers.bzl", "ViteInfo")
 load("@build_bazel_rules_nodejs//:providers.bzl", "ExternalNpmPackageInfo", "JSEcmaScriptModuleInfo", "JSModuleInfo", "node_modules_aspect")
 
 def _nextjs_build_impl(ctx):
@@ -27,7 +26,7 @@ def _nextjs_build_impl(ctx):
 
     deps_inputs = depset(transitive = deps_depsets).to_list()
 
-    inputs = deps_inputs + ctx.files.srcs + ctx.files.config
+    inputs = deps_inputs + ctx.files.srcs
 
     inputs = [d for d in inputs if not (d.path.endswith(".d.ts") or d.path.endswith(".tsbuildinfo"))]
 
@@ -48,11 +47,6 @@ def _nextjs_build_impl(ctx):
             runfiles = ctx.runfiles(collect_data = True),
             executable = main_archive,
         ),
-        # ViteInfo(
-        #     info = struct(
-        #         output_directory_path = main_archive.path,
-        #     ),
-        # ),
     ]
 
 nextjs_build = rule(
@@ -77,17 +71,9 @@ nextjs_build = rule(
             executable = True,
             cfg = "host",
         ),
-        "config": attr.label(
-            allow_single_file = [".ts", ".mjs", ".js"],
-            # mandatory = True,
-        ),
         "args": attr.string_list(
             default = [],
             doc = """Command line arguments to pass to Rollup vite""",
-        ),
-        "ssrtype": attr.string(
-            default = "",
-            values = ["", "client", "server"],
         ),
     },
     doc = "Builds an executable program from vite source code",

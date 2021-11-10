@@ -293,6 +293,11 @@
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
 
+"@ubiquitoustech/rules_nextjs@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@ubiquitoustech/rules_nextjs/-/rules_nextjs-0.1.2.tgz#afbc8442ce1b56815a71e85ef5fc0a947c9d5a9e"
+  integrity sha512-qehJVQcGOuqIG+dnCsfnUZGsfSjxJ8+uLFIZ3wqCDo+29CYHojs4p+0p8quelqQWCJZw6xUf/ORuweLhH3iRCw==
+
 acorn-jsx@^5.3.1:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"

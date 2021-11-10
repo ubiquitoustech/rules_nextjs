@@ -1,5 +1,5 @@
 """
-vite actions
+nextjs actions
 """
 
 load("@build_bazel_rules_nodejs//:providers.bzl", "run_node")
@@ -19,10 +19,6 @@ def nextjs_build_action(ctx, srcs, out):
 
     launcher_args.add_all([
         "build",
-        # "--config",
-        # ctx.file.config,
-        # "--outDir",
-        # out.path,
     ])
 
     launcher_args.add_all(ctx.attr.args)
@@ -33,8 +29,6 @@ def nextjs_build_action(ctx, srcs, out):
     execution_requirements = {}
     if "no-remote-exec" in ctx.attr.tags:
         execution_requirements = {"no-remote-exec": "1"}
-
-    # build_dir = {"BUILD_DIR": out.path}
 
     run_node(
         ctx = ctx,
