@@ -1,16 +1,14 @@
+# load(
+#     "@ubiquitous_tech_rules_nextjs//nextjs:defs.bzl",
+#     "nextjs",
+#     "nextjs_dev",
+# )
+
 load(
-    "@ubiquitous_tech_rules_nextjs//nextjs:defs.bzl",
+    "@npm//@ubiquitoustech/rules_nextjs:index.bzl",
     "nextjs",
     "nextjs_dev",
-    # "vite_dev",
 )
-
-# load(
-#     "@npm//@ubiquitoustech/rules_vite:index.bzl",
-#     "vite",
-#     "vite_dev",
-# )
-# load("@npm//history-server:index.bzl", "history_server")
 
 nextjs(
     name = "prod",
@@ -21,22 +19,12 @@ nextjs(
         "next.config.js",
         # ":tsconfig.json",
     ],
-    # config = ":vite.config.ts",
     deps = [
         "@npm//next",
         "@npm//react",
         "@npm//react-dom",
-
-        # "@npm//@types/react",
-        # "@npm//@types/react-dom",
-        # "@npm//@vitejs/plugin-react",
-        # "@npm//react",
-        # "@npm//react-dom",
-        # "@npm//typescript",
-        # "@npm//vite",
     ],
 )
-
 
 nextjs_dev(
     name = "dev",
@@ -49,53 +37,9 @@ nextjs_dev(
         # ":tsconfig.json",
     ],
     # port = "4000",
-    # config = ":vite.config.ts",
     deps = [
         "@npm//next",
         "@npm//react",
         "@npm//react-dom",
-
-        # "@npm//@babel/core",
-        # "@npm//webpack",
-
-        # "@npm//next-transpile-modules",
-
-        # "@npm//@types/react",
-        # "@npm//@types/react-dom",
-        # "@npm//@vitejs/plugin-react",
-        # "@npm//react",
-        # "@npm//react-dom",
-        # "@npm//typescript",
-        # "@npm//vite",
     ],
 )
-
-# vite_dev(
-#     name = "dev",
-#     srcs = glob(["src/**"]) + [
-#         ":index.html",
-#         ":package.json",
-#         ":yarn.lock",
-#         ":tsconfig.json",
-#     ],
-#     config = ":vite.config.mjs",
-#     npm_managed_directory_name = "npm",
-#     npm_managed_directory_path = "node_modules",
-#     deps = [
-#         "@npm//@types/react",
-#         "@npm//@types/react-dom",
-#         "@npm//@vitejs/plugin-react",
-#         "@npm//react",
-#         "@npm//react-dom",
-#         "@npm//typescript",
-#         "@npm//vite",
-#     ],
-# )
-
-# PROD_BUNDLE = ":prod"
-
-# history_server(
-#     name = "prodserver",
-#     data = [PROD_BUNDLE],
-#     templated_args = ["-a $$(rlocation $(rootpath %s))" % PROD_BUNDLE],
-# )

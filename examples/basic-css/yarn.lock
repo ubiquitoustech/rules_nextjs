@@ -378,6 +378,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.6.tgz#6bef7a2a0ad684cf6e90fcfe31cecabd9ce0a3ae"
   integrity sha512-ua7PgUoeQFjmWPcoo9khiPum3Pd60k4/2ZGXt18sm2Slk0W0xZTqt5Y0Ny1NyBiN1EVQ/+FaF9NcY4Qe6rwk5w==
 
+"@ubiquitoustech/rules_nextjs@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@ubiquitoustech/rules_nextjs/-/rules_nextjs-0.1.2.tgz#afbc8442ce1b56815a71e85ef5fc0a947c9d5a9e"
+  integrity sha512-qehJVQcGOuqIG+dnCsfnUZGsfSjxJ8+uLFIZ3wqCDo+29CYHojs4p+0p8quelqQWCJZw6xUf/ORuweLhH3iRCw==
+
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.11.1.tgz#2bfd767eae1a6996f432ff7e8d7fc75679c0b6a7"
