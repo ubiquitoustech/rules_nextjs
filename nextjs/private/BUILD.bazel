@@ -3,9 +3,9 @@ filegroup(
     srcs = glob([
         "*.bzl",
         "*.bazel",
+        "*.sh",
     ]),
     visibility = ["//nextjs:__pkg__"],
 )
-
 
 exports_files(["launcher_template.sh"])

@@ -69,7 +69,7 @@ fi
 readonly manifest=$(rlocation "TEMPLATED_manifest")
 readonly scripts_manifest=$(rlocation "TEMPLATED_scripts_manifest")
 
-pwd
+# pwd
 
 # Workaround for https://github.com/bazelbuild/bazel/issues/6764
 # If this issue is incorporated into Bazel, the workaround here should be removed.

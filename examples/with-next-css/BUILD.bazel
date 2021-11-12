@@ -4,6 +4,7 @@
 #     "nextjs_dev",
 # )
 
+# this uses the npm package
 load(
     "@npm//@ubiquitoustech/rules_nextjs:index.bzl",
     "nextjs",
@@ -12,11 +13,15 @@ load(
 
 nextjs(
     name = "prod",
-    srcs = glob(["pages/**", "component/**"]) + [
+    srcs = glob([
+        "pages/**",
+        "component/**",
+    ]) + [
         ":style.css",
         ":package.json",
         ":yarn.lock",
         ":next.config.js",
+        "jsconfig.json",
         # ":tsconfig.json",
     ],
     # args = ["--profile",],
@@ -27,29 +32,24 @@ nextjs(
     ],
 )
 
-
-
 nextjs_dev(
     name = "dev",
-    srcs = glob(["pages/**", "component/**"]) + [
+    srcs = glob([
+        "pages/**",
+        "component/**",
+    ]) + [
         ":style.css",
         ":package.json",
         ":yarn.lock",
         "next.config.js",
+        "jsconfig.json",
         # ":tsconfig.json",
     ],
     # args = ["--profile",],
     deps = [
         "@npm//next",
+        "@npm//next-transpile-modules",
         "@npm//react",
         "@npm//react-dom",
     ],
 )
-
-# PROD_BUNDLE = ":prod"
-
-# history_server(
-#     name = "prodserver",
-#     data = [PROD_BUNDLE],
-#     templated_args = ["-a $$(rlocation $(rootpath %s))" % PROD_BUNDLE],
-# )

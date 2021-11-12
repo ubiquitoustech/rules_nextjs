@@ -33,7 +33,7 @@ nextjs_dev(
         ":package.json",
         ":yarn.lock",
         ":next.config.js",
-        ":.babelrc",
+        # ":.babelrc",
         # ":tsconfig.json",
     ],
     # port = "4000",

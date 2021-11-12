@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.16.0",
-    "@ubiquitoustech/rules_nextjs": "^0.1.2",
+    "@ubiquitoustech/rules_nextjs": "0.1.3",
     "next": "^12.0.2-canary.10",
     "next-transpile-modules": "^9.0.0",
     "react": "^17.0.2",
